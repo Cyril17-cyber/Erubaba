@@ -18,7 +18,9 @@ export default function ProductCard({ item }: Props) {
         className="h-40 w-full object-cover mb-2 rounded-lg"
       />
       <h3 className="font-medium">{item.name}</h3>
-      <Link href={"/"} className="text-sm text-gray-500 underline">{item.seller}</Link>
+      <Link href={"/"} className="text-sm text-gray-500 underline">
+        {item.seller}
+      </Link>
       <p className="mt-3 font-bold">₦{item.price.toLocaleString()}</p>
       <div className="flex items-center my-3!">
         <Rating size="small" value={item.rated} precision={0.5} readOnly />

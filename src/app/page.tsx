@@ -1,7 +1,6 @@
 // app/page.tsx
 "use client";
 
-import { useState } from "react";
 import styles from "./Landing.module.css";
 import { Product, products } from "./components/Dummydata";
 import FAQSection from "./components/FAQSection";
