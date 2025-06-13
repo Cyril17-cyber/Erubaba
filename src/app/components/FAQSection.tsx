@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Search } from "@mui/icons-material";
+import { useState } from "react";
 
 type FAQItem = {
   question: string;

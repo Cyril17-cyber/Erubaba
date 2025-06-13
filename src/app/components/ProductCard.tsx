@@ -1,9 +1,9 @@
 // /components/ProductCard.tsx
-import { Product } from "./Dummydata";
+import style from "@/app/Landing.module.css";
 import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
-import style from "@/app/Landing.module.css";
 import Link from "next/link";
+import { Product } from "./Dummydata";
 
 interface Props {
   item: Product;

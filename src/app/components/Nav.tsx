@@ -1,16 +1,15 @@
 // /components/NavBar.tsx
+import logo from "@/app/public/logo.png";
+import {
+  Menu,
+  PermIdentity,
+  ShoppingCartOutlined
+} from "@mui/icons-material";
+import { Badge, IconButton } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { IconButton, Badge } from "@mui/material";
-import {
-  ShoppingCartOutlined,
-  PermIdentity,
-  Menu,
-  Search,
-} from "@mui/icons-material";
-import Link from "next/link";
 import Image from "next/image";
-import logo from "@/app/public/logo.png";
+import Link from "next/link";
 import SearchInput from "./SearchInput";
 
 export default function NavBar({

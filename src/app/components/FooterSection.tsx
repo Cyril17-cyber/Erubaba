@@ -1,5 +1,5 @@
-import Image from "next/image";
 import logo from "@/app/public/logo.png";
+import Image from "next/image";
 
 const footerLinks = {
   About: ["Our Company", "Our Story", "Blog"],

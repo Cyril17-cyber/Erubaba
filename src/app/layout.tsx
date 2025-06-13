@@ -44,12 +44,12 @@
 
 // app/layout.tsx
 "use client";
-import "./globals.css";
-import React, { useState, ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Poppins } from "next/font/google";
+import { ReactNode, useState } from "react";
 import NavBar from "./components/Nav";
 import TemporaryDrawer from "./components/TemporaryDrawer";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],

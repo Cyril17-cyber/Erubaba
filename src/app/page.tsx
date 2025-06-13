@@ -1,14 +1,13 @@
 // app/page.tsx
 "use client";
 
-import Section from "./components/Section";
-import ProductCard from "./components/ProductCard";
-import { products, Product } from "./components/Dummydata";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import styles from "./Landing.module.css";
+import { Product, products } from "./components/Dummydata";
 import FAQSection from "./components/FAQSection";
 import FooterSection from "./components/FooterSection";
+import ProductCard from "./components/ProductCard";
+import Section from "./components/Section";
 const currentYear = new Date().getFullYear();
 
 const getRandomProducts = (arr: Product[], count: number) => {

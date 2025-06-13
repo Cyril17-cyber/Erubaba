@@ -1,10 +1,8 @@
-import React from "react";
+import logo from "@/app/public/logo.png"; // Adjust the path as necessary
+import { ShoppingCartOutlined } from "@mui/icons-material";
+import { Badge } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import logo from "@/app/public/logo.png"; // Adjust the path as necessary
-import { Badge } from "@mui/material";
-import { ShoppingCartOutlined } from "@mui/icons-material";
 export default function Page() {
   return (
     <div className="flex items-center justify-between">

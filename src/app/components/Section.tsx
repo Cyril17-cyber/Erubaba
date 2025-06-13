@@ -1,6 +1,6 @@
 // /components/Section.tsx
-import { ReactNode } from "react";
 import style from "@/app/Landing.module.css";
+import { ReactNode } from "react";
 
 interface Props {
   title: string;
