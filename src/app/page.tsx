@@ -31,7 +31,7 @@ const kitchenProducts = getCategoryProducts(products, "kitchen", 8);
 const fashionBeautyProducts = getCategoryProducts(products, "fashion", 8);
 
 export default function HomePage() {
-  const [flashSales, setFlashSales] = useState<Product[]>([]);
+  // const [flashSales, setFlashSales] = useState<Product[]>([]);
 
   // useEffect(() => {
   //   axios
@@ -74,12 +74,17 @@ export default function HomePage() {
         ))}
       </Section>
 
-      <Section title="Flash Sales!!!">
+      {/* <Section title="Flash Sales!!!">
         {flashSales.length
           ? flashSales.map((p) => <ProductCard key={p.id} item={p} />)
           : Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="h-48 bg-gray-200 animate-pulse" />
             ))}
+      </Section> */}
+      <Section title="Flash Sales!!!">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="h-48 bg-gray-200 animate-pulse" />
+        ))}
       </Section>
 
       <Section title="Kitchen" seeAllHref="/products/kitchen">
