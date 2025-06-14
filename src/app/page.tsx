@@ -1,13 +1,12 @@
 // app/page.tsx
 "use client";
-import React, { useEffect, useState } from "react";
+import { ChevronRight } from "@mui/icons-material";
+import { useState } from "react";
 import styles from "./Landing.module.css";
-import { Product, products, categories } from "./components/Dummydata";
+import { categories, Product, products } from "./components/Dummydata";
 import FAQSection from "./components/FAQSection";
 import ProductCard from "./components/ProductCard";
 import Section from "./components/Section";
-import { ChevronRight } from "@mui/icons-material";
-import { subscribe } from "diagnostics_channel";
 
 const getRandomProducts = (arr: Product[], count: number) => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());

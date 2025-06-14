@@ -47,10 +47,10 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { Poppins } from "next/font/google";
 import { ReactNode, useState } from "react";
+import FooterSection from "./components/FooterSection";
 import NavBar from "./components/Nav";
 import TemporaryDrawer from "./components/TemporaryDrawer";
 import "./globals.css";
-import FooterSection from "./components/FooterSection";
 
 const poppins = Poppins({
   subsets: ["latin"],

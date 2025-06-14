@@ -197,7 +197,6 @@ export const categories: CategoryType[] = [
   },
 ];
 
-
 // This is a TypeScript interface for a product object
 export interface Product {
   id: string;
@@ -763,7 +762,3 @@ export const products: Product[] = [
     subCategory: "supplies",
   },
 ];
-
-
-
-
