@@ -113,7 +113,10 @@ export default function HomePage() {
           seeAllHref={`/products/${filteredCategory}`}
         >
           {products
-            .filter((c) => c.subCategory === subCategory)
+            .filter(
+              (c) =>
+                c.category === filteredCategory && c.subCategory === subCategory
+            )
             .map((p) => (
               <ProductCard key={p.id} item={p} />
             ))}
