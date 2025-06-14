@@ -40,6 +40,10 @@ export default function HomePage() {
 
   const [filteredCategory, setFilteredCategory] = useState<string>("");
   const [subCategory, setSubCategory] = useState<string>("");
+  function clearAll() {
+    setFilteredCategory("");
+    setSubCategory("");
+  }
 
   return (
     <main className="">
@@ -58,7 +62,7 @@ export default function HomePage() {
             key={c.name}
             onClick={() => {
               filteredCategory === c.name
-                ? setFilteredCategory("")
+                ? clearAll()
                 : setFilteredCategory(c.name);
             }}
             style={{
