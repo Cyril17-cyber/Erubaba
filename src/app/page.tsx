@@ -1,13 +1,13 @@
 // app/page.tsx
 "use client";
-
+import React, { useEffect, useState } from "react";
 import styles from "./Landing.module.css";
-import { Product, products } from "./components/Dummydata";
+import { Product, products, categories } from "./components/Dummydata";
 import FAQSection from "./components/FAQSection";
-import FooterSection from "./components/FooterSection";
 import ProductCard from "./components/ProductCard";
 import Section from "./components/Section";
-const currentYear = new Date().getFullYear();
+import { ChevronRight } from "@mui/icons-material";
+import { subscribe } from "diagnostics_channel";
 
 const getRandomProducts = (arr: Product[], count: number) => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
@@ -39,6 +39,9 @@ export default function HomePage() {
   //     .catch(() => {});
   // }, []);
 
+  const [filteredCategory, setFilteredCategory] = useState<string>("");
+  const [subCategory, setSubCategory] = useState<string>("");
+
   return (
     <main className="">
       <div
@@ -49,12 +52,74 @@ export default function HomePage() {
         </h1>
       </div>
 
+      <div className="flex w-full overflow-x-scroll container mx-auto px-4 lg:px-8 items-center gap-4 mb-8">
+        {categories.map((c) => (
+          <button
+            className="flex items-center cursor-pointer gap-2 p-2 bg-white border border-gray-300 rounded-lg min-w-max hover:border-gray-900 transition-colors"
+            key={c.name}
+            onClick={() => {
+              filteredCategory === c.name
+                ? setFilteredCategory("")
+                : setFilteredCategory(c.name);
+            }}
+            style={{
+              backgroundColor:
+                filteredCategory === c.name ? "#f0f0f0" : "transparent",
+              borderColor: filteredCategory === c.name ? "#101828" : "#d1d5dc",
+            }}
+          >
+            <span className="font-semibold text-gray-800">{c.name}</span>
+            <ChevronRight className="text-gray-800" />
+          </button>
+        ))}
+      </div>
+      {filteredCategory !== "" && (
+        <div className="flex w-full overflow-x-scroll container mx-auto px-4 lg:px-8 items-center gap-4 mb-8">
+          {categories
+            .filter((c) => c.name === filteredCategory)[0]
+            .subCategories.map((sub) => (
+              <button
+                key={sub.image}
+                onClick={() => {
+                  subCategory === sub.name
+                    ? setSubCategory("")
+                    : setSubCategory(sub.name);
+                }}
+                className="p-4 rounded-lg min-w-80 flex flex-col items-start"
+                style={{
+                  backgroundColor:
+                    subCategory === sub.name ? "#f0f0f0" : "transparent",
+                  borderColor: subCategory === sub.name ? "#101828" : "#d1d5dc",
+                }}
+              >
+                <img
+                  src={sub.image}
+                  alt={sub.name}
+                  className="h-40 w-full rounded-lg object-cover"
+                />
+                <span className="text-gray-800 font-semibold">{sub.name}</span>
+              </button>
+            ))}
+        </div>
+      )}
+
       {/* <Section title="Featured Products" seeAllHref="/products/featured">
         {featured.map((p) => (
           <ProductCard key={p.id} item={p} />
         ))}
       </Section> */}
-
+      {filteredCategory !== "" && subCategory !== "" && (
+        <Section
+          title={`${filteredCategory}: ${subCategory}`}
+          seeAllHref={`/products/${filteredCategory}`}
+        >
+          {products
+            .filter((c) => c.subCategory === subCategory)
+            .map((p) => (
+              <ProductCard key={p.id} item={p} />
+            ))}
+        </Section>
+      )}
       <Section title="Featured Products" seeAllHref="/products/featured">
         {randomProducts.map((p) => (
           <ProductCard key={p.id} item={p} />
@@ -82,7 +147,7 @@ export default function HomePage() {
       </Section> */}
       <Section title="Flash Sales!!!">
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="h-48 bg-gray-200 animate-pulse" />
+          <div key={i + 4} className="h-48 bg-gray-200 animate-pulse" />
         ))}
       </Section>
 
@@ -128,12 +193,6 @@ export default function HomePage() {
         </div>
         <div className=""></div>
       </section>
-
-      <FooterSection />
-
-      <div className="text-white bg-stone-950 p-5 text-center lg:text-left">
-        ©{currentYear} Erubaba. All Rights Reserved
-      </div>
     </main>
   );
 }

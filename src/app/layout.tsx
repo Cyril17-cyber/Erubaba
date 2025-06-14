@@ -50,12 +50,15 @@ import { ReactNode, useState } from "react";
 import NavBar from "./components/Nav";
 import TemporaryDrawer from "./components/TemporaryDrawer";
 import "./globals.css";
+import FooterSection from "./components/FooterSection";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
+
+const currentYear = new Date().getFullYear();
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -72,6 +75,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <NavBar toggleDrawer={toggleDrawer} />
         <TemporaryDrawer open={openMenu} toggleDrawer={toggleDrawer} />
         {children}
+        <FooterSection />
+
+        <div className="text-white bg-stone-950 p-5 text-center lg:text-left">
+          ©{currentYear} Erubaba. All Rights Reserved
+        </div>
       </body>
     </html>
   );
